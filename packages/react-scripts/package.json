@@ -1,7 +1,7 @@
 {
-  "name": "@prichodko/react-scripts",
+  "name": "@strv/react-scripts",
   "version": "0.0.0",
-  "description": "Customized configuration and scripts for Create React App.",
+  "description": "Configuration and scripts for Create React App.",
   "repository": "prichodko/create-react-app",
   "license": "MIT",
   "engines": {
@@ -10,7 +10,7 @@
   "bugs": {
     "url": "https://github.com/prichodko/create-react-app/issues"
   },
-  "files": ["bin", "config", "scripts", "template", "utils", "babel"],
+  "files": ["bin", "config", "scripts", "template", "utils", "babel.js"],
   "bin": {
     "react-scripts": "./bin/react-scripts.js"
   },
