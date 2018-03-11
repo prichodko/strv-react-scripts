@@ -1,7 +1,6 @@
 'use strict';
 
 const fs = require('fs');
-const eslintFormatter = require('react-dev-utils/eslintFormatter');
 const chalk = require('chalk');
 const paths = require('./paths');
 
@@ -28,42 +27,42 @@ const babelConfig = ({ dev, output }) => {
   return babelOptions;
 };
 
-const eslintConfig = ({ output }) => {
-  const eslintOptions = {
-    formatter: eslintFormatter,
-    eslintPath: require.resolve('eslint'),
-    ignore: false,
-    useEslintrc: true,
-  };
+// const eslintConfig = ({ output }) => {
+//   const eslintOptions = {
+//     formatter: eslintFormatter,
+//     eslintPath: require.resolve('eslint'),
+//     ignore: false,
+//     useEslintrc: true,
+//   };
 
-  const hasEslintRc = fs.existsSync(paths.appEslintRc);
+//   const hasEslintRc = fs.existsSync(paths.appEslintRc);
 
-  if (hasEslintRc) {
-    output.push(`${chalk.yellow('⚠️  Using external eslint configuration')}`);
-  } else {
-    eslintOptions.baseConfig = {
-      extends: [require.resolve('eslint-config-react-app')],
-    };
-    eslintOptions.useEslintrc = false;
-  }
+//   if (hasEslintRc) {
+//     output.push(`${chalk.yellow('⚠️  Using external eslint configuration')}`);
+//   } else {
+//     eslintOptions.baseConfig = {
+//       extends: [require.resolve('eslint-config-react-app')],
+//     };
+//     eslintOptions.useEslintrc = false;
+//   }
 
-  return eslintOptions;
-};
+//   return eslintOptions;
+// };
 
 const createWebpackConfig = ({ appConfig, dev = false }) => {
   const output = [];
   const babelLoaderOptions = babelConfig({ dev, output });
-  const eslintLoaderOptions = eslintConfig({ output });
+  // const eslintLoaderOptions = eslintConfig({ output });
 
   const loaders = {
     babel: {
       loader: require.resolve('babel-loader'),
       options: babelLoaderOptions,
     },
-    eslint: {
-      loader: require.resolve('eslint-loader'),
-      options: eslintLoaderOptions,
-    },
+    // eslint: {
+    //   loader: require.resolve('eslint-loader'),
+    //   options: eslintLoaderOptions,
+    // },
   };
 
   let config;
